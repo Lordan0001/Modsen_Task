@@ -36,24 +36,6 @@ namespace Library.Application.Services
         }
         public Book UpdateBook(Book book)
         {
-            /*            var existingBook = _bookRepository.GetBookById(book.BookId);
-                        if (existingBook == null)
-                        {
-                            throw new Exception($"Book to update not found.");
-                        }
-                        //ADD AUTOMAPPER
-                        existingBook.ISBN = book.ISBN;
-                        existingBook.Title = book.Title;
-                        existingBook.Genre = book.Genre;
-                        existingBook.Description = book.Description;
-                        existingBook.Author = book.Author;
-
-                        _bookRepository.UpdateBook(existingBook);
-
-                        return existingBook;*/
-
-
-
             _bookRepository.UpdateBook(book);
 
             return book;

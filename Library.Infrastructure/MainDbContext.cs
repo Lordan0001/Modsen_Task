@@ -1,4 +1,5 @@
 ﻿using Library.Domain;
+using Library.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
@@ -31,7 +32,16 @@ namespace Library.Infrastructure
                 entity.HasIndex(e => e.ISBN).IsUnique();
             });
 
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.UserEmail)
+                    .IsRequired();
+                    
+                entity.HasIndex(e => e.UserEmail).IsUnique();
+            });
+
         }
         public DbSet<Book> Books { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

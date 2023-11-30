@@ -2,12 +2,14 @@
 using Library.Application.Services;
 using Library.Domain;
 using Library.Domain.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Library.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
@@ -41,18 +43,7 @@ namespace Library.API.Controllers
         }
         [HttpPost]
         public ActionResult<Book> PostBook(BookDTO bookDTO)
-        {
-            //ADD AUTOMAPPER
-/*            var book = new Book
-            {
-                ISBN = bookDTO.ISBN,
-                Title = bookDTO.Title,
-                Genre = bookDTO.Genre,
-                Description = bookDTO.Description,
-                Author = bookDTO.Author
-
-            };*/
-
+        {//DI Mapper
            var book = _mapper.Map<Book>(bookDTO);  
            var createdBook = _bookService.CreateBook(book);
            return Ok(createdBook);
