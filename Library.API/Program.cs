@@ -23,6 +23,9 @@ builder.Services.AddDbContext<MainDbContext>(options => options.UseSqlServer(con
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 
+//Automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());    
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

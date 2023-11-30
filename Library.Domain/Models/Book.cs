@@ -14,7 +14,7 @@ namespace Library.Domain
         public string Genre { get; set; } = String.Empty;
         public string Description { get; set; } = String.Empty;
         public string Author { get; set; } = String.Empty;
-        public DateTime BookWasTakenDate { get; set; } = DateTime.Now;
-        public DateTime BookWasReturnedDate { get; set; } = DateTime.Now.AddDays(31);
+        public DateTime BookWasTakenDate { get; set; } = DateTime.Now.ToLocalTime();
+        public DateTime BookWasReturnedDate { get; set; } = DateTime.Now.ToLocalTime().AddDays(31);
     }
 }

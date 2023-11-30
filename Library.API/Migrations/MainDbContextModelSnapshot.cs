@@ -57,6 +57,9 @@ namespace Library.API.Migrations
 
                     b.HasKey("BookId");
 
+                    b.HasIndex("ISBN")
+                        .IsUnique();
+
                     b.ToTable("Books");
                 });
 #pragma warning restore 612, 618
