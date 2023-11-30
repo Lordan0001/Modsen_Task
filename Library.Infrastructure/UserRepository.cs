@@ -37,7 +37,7 @@ namespace Library.Infrastructure
 
            var userExist =  _mainDbContext.Users.FirstOrDefault(b => b.UserEmail == user.UserEmail);
 
-            if(user == null)
+            if(userExist == null)
             {
                 return null;
             }
