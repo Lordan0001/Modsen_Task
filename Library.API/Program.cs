@@ -67,7 +67,7 @@ builder.Services.AddSwaggerGen(c =>
 
 //Database Service
 builder.Services.AddDbContext<MainDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-    b => b.MigrationsAssembly("Library.API")));
+    b => b.MigrationsAssembly("Library.Infrastructure")));
 
 //BookService
 builder.Services.AddScoped<IBookService, BookService>();

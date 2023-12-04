@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Library.API.Migrations
+namespace Library.Infrastructure.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20231130215222_init3")]
-    partial class init3
+    [Migration("20231204163833_change dir")]
+    partial class changedir
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,8 +75,7 @@ namespace Library.API.Migrations
 
                     b.Property<string>("UserEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)")
-                        .HasAnnotation("RegularExpression", "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId");
 
