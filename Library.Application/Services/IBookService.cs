@@ -1,5 +1,5 @@
-﻿using Library.Domain;
-using Library.Domain.Dto;
+﻿using Library.Application.Dto;
+using Library.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Library.Application.Dto;
 using Library.Application.Services;
 using Library.Domain;
-using Library.Domain.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,8 +41,7 @@ namespace Library.API.Controllers
         }
         [HttpPost]
         public ActionResult<Book> PostBook(BookDTO bookDTO)
-        {//DI Mapper
-           //var book = _mapper.Map<Book>(bookDTO);  
+        { 
            var createdBook = _bookService.CreateBook(bookDTO);
            return Ok(createdBook);
         }

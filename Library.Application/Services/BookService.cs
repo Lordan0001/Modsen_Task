@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Library.Application.Dto;
 using Library.Application.Repositories;
 using Library.Domain;
-using Library.Domain.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
