@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Library.Application.Profiles
 {
-    public class BookProfile : Profile
+    public class MapperProfile : Profile
     {
-        public BookProfile()
+        public MapperProfile()
         {
                 CreateMap<BookDTO, Book>(); 
         }

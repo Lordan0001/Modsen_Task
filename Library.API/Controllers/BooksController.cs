@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Library.Application.Dto;
-using Library.Application.Services;
+using Library.Application.Interfaces;
 using Library.Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

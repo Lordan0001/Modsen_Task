@@ -1,4 +1,4 @@
-using Library.Application.Repositories;
+using Library.Application.Interfaces;
 using Library.Application.Services;
 using Library.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
