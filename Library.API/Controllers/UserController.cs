@@ -20,24 +20,24 @@ namespace Library.API.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetAllUsers()
+        public async Task<ActionResult> GetAllUsers()
         {
-            var users = _userService.GetAllUsers();
+            var users = await _userService.GetAllUsers();
             return Ok(users);
         }
         [HttpPost]
-        public ActionResult CreateUser(User user)
+        public async Task<ActionResult> CreateUser(User user)
         {
-            var newUser = _userService.Registration(user);
+            var newUser =await _userService.Registration(user);
             return Ok(newUser);
         }
 
         [HttpPost]
         [Route("authenticate")]
 
-        public IActionResult Authenticate(User user)
+        public async  Task<IActionResult> Authenticate(User user)
         {
-            var token = _userService.Login(user);
+            var token =await _userService.Login(user);
 
             if (token == null)
             {

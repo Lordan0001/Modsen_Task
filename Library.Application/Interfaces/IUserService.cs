@@ -10,8 +10,8 @@ namespace Library.Application.Interfaces
 {
     public interface IUserService
     {
-        List<User> GetAllUsers();
-        User Registration(User user);
-        Tokens Login(User user);
+        Task<List<User>> GetAllUsers();
+        Task<User> Registration(User user);
+        Task<Tokens> Login(User user);
     }
 }

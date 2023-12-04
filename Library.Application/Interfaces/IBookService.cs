@@ -10,11 +10,11 @@ namespace Library.Application.Interfaces
 {
     public interface IBookService
     {
-        List<Book> GetAllBooks();
-        Book GetBookById(int id);
-        Book GetBookByISBN(int isbn);
-        Book CreateBook(BookDTO bookDto);
-        Book UpdateBook(BookDTO bookDto);
-        Book DeleteBook(int id);
+        Task<List<Book>> GetAllBooks();
+        Task<Book> GetBookById(int id);
+        Task<Book> GetBookByISBN(int isbn);
+        Task<Book> CreateBook(BookDTO bookDto);
+        Task<Book> UpdateBook(BookDTO bookDto);
+        Task<Book> DeleteBook(int id);
     }
 }

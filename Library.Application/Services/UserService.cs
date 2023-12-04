@@ -17,21 +17,21 @@ namespace Library.Application.Services
         {
             _userRepository = userRepository;
         }
-        public List<User> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
-            var users = _userRepository.GetAllUsers();
+            var users = await _userRepository.GetAllUsers();
             return users;
         }
 
-        public Tokens Login(User user)
+        public async Task<Tokens> Login(User user)
         {
-            var tokens = _userRepository.Login(user);
+            var tokens = await _userRepository.Login(user);
             return tokens;
         }
 
-        public User Registration(User user)
+        public async Task<User> Registration(User user)
         {
-           var registration = _userRepository.Registration(user);
+           var registration = await _userRepository.Registration(user);
             return registration;
         }
     }

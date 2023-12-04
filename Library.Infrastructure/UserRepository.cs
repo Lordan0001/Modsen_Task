@@ -1,6 +1,7 @@
 ﻿using Library.Application.Interfaces;
 using Library.Domain;
 using Library.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -27,15 +28,15 @@ namespace Library.Infrastructure
 
        
 
-        public List<User> GetAllUsers()
+        public async Task<List<User>> GetAllUsers()
         {
-            return _mainDbContext.Users.ToList();
+            return await _mainDbContext.Users.ToListAsync();
         }
 
-        public Tokens Login(User user)
+        public async Task<Tokens> Login(User user)
         {
 
-           var userExist =  _mainDbContext.Users.FirstOrDefault(b => b.UserEmail == user.UserEmail);
+           var userExist =  await _mainDbContext.Users.FirstOrDefaultAsync(b => b.UserEmail == user.UserEmail);
 
             if(userExist == null)
             {
@@ -59,10 +60,10 @@ namespace Library.Infrastructure
         }
     
 
-        public User Registration(User user)
+        public async Task<User> Registration(User user)
         {
-           _mainDbContext.Users.Add(user);
-           _mainDbContext.SaveChanges();
+            _mainDbContext.Users.Add(user);
+           await _mainDbContext.SaveChangesAsync();
            return user;
         }
     }

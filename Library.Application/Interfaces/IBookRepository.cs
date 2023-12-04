@@ -9,11 +9,11 @@ namespace Library.Application.Interfaces
 {
     public interface IBookRepository
     {
-        List<Book> GetAllBooks();
-        Book GetBookById(int id);
-        Book GetBookByISBN(int isbn);
-        Book CreateBook(Book book);
-        Book UpdateBook(Book book);
-        Book DeleteBook(int id);
+        Task<List<Book>> GetAllBooks();
+        Task<Book> GetBookById(int id);
+        Task<Book> GetBookByISBN(int isbn);
+        Task<Book> CreateBook(Book book);
+        Task<Book> UpdateBook(Book book);
+        Task<Book> DeleteBook(int id);
     }
 }

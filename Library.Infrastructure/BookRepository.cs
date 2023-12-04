@@ -1,5 +1,6 @@
 ﻿using Library.Application.Interfaces;
 using Library.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,41 +17,41 @@ namespace Library.Infrastructure
         {
             _mainDbContext = mainDbContext;
         }
-        public List<Book> GetAllBooks()
+        public async Task<List<Book>> GetAllBooks()
         {
-           return _mainDbContext.Books.ToList();
+           return await _mainDbContext.Books.ToListAsync();
         }
-        public Book GetBookById(int id)
+        public async Task<Book> GetBookById(int id)
         {
-           return _mainDbContext.Books.FirstOrDefault(b => b.BookId == id);
+           return await _mainDbContext.Books.FirstOrDefaultAsync(b => b.BookId == id);
 
         }
 
-        public Book GetBookByISBN(int isbn)
+        public async Task<Book> GetBookByISBN(int isbn)
         {
-            return _mainDbContext.Books.FirstOrDefault(b => b.ISBN == isbn);
+            return await _mainDbContext.Books.FirstOrDefaultAsync(b => b.ISBN == isbn);
         }
-        public Book CreateBook(Book book)
+        public async Task<Book> CreateBook(Book book)
         {
           _mainDbContext.Books.Add(book);
-            _mainDbContext.SaveChanges();
-            return book;
+          await _mainDbContext.SaveChangesAsync();
+          return book;
         }
-        public Book UpdateBook(Book book)
+        public async Task<Book> UpdateBook(Book book)
         {
             _mainDbContext.Books.Update(book);
-            _mainDbContext.SaveChanges();
+            await _mainDbContext.SaveChangesAsync();
             return book;
         }
 
-        public Book DeleteBook(int id)
+        public async Task<Book> DeleteBook(int id)
         {
-            var bookToDelete = _mainDbContext.Books.FirstOrDefault(book => book.BookId == id);
+            var bookToDelete = await _mainDbContext.Books.FirstOrDefaultAsync(book => book.BookId == id);
 
             if (bookToDelete != null)
             {
                 _mainDbContext.Books.Remove(bookToDelete);
-                _mainDbContext.SaveChanges();
+                await _mainDbContext.SaveChangesAsync();
                 return bookToDelete;
             }
             return null;

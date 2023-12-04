@@ -22,39 +22,39 @@ namespace Library.API.Controllers
             _bookService = bookService;
         }
         [HttpGet]
-        public ActionResult<List<Book>> GetAllBooks()
+        public async Task<ActionResult<List<Book>>> GetAllBooks()
         {
-            var booksFromService = _bookService.GetAllBooks();
+            var booksFromService = await _bookService.GetAllBooks();
             return Ok(booksFromService);
         }
         [HttpGet("{id}")]
-        public ActionResult<Book> GetBookById(int id)
+        public async Task<ActionResult<Book>> GetBookById(int id)
         {
-            var bookFromService = _bookService.GetBookById(id);
+            var bookFromService = await _bookService.GetBookById(id);
             return Ok(bookFromService);
         }
         [HttpGet("isbn/:{isbn}")]
-        public ActionResult<Book> GetBookByIsbn(int isbn)
+        public async Task<ActionResult<Book>> GetBookByIsbn(int isbn)
         {
-            var bookFromService = _bookService.GetBookByISBN(isbn);
+            var bookFromService = await _bookService.GetBookByISBN(isbn);
             return Ok(bookFromService);
         }
         [HttpPost]
-        public ActionResult<Book> PostBook(BookDTO bookDTO)
+        public async Task<ActionResult<Book>> PostBook(BookDTO bookDTO)
         { 
-           var createdBook = _bookService.CreateBook(bookDTO);
+           var createdBook = await _bookService.CreateBook(bookDTO);
            return Ok(createdBook);
         }
         [HttpPut]
-        public ActionResult<Book> PutBook(BookDTO bookDto)
+        public async Task<ActionResult<Book>> PutBook(BookDTO bookDto)
         {
-            var updatedBook = _bookService.UpdateBook(bookDto);
+            var updatedBook = await _bookService.UpdateBook(bookDto);
             return Ok(updatedBook);
         }
         [HttpDelete]
-        public ActionResult DeleteBook(int id)
+        public async Task<ActionResult> DeleteBook(int id)
         {
-            var deleted = _bookService.DeleteBook(id);
+            var deleted = await _bookService.DeleteBook(id);
             return Ok(deleted);
         }
 

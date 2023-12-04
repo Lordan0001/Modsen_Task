@@ -21,36 +21,35 @@ namespace Library.Application.Services
             _bookRepository = bookRepository;
             _mapper = mapper;
         }
-        public List<Book> GetAllBooks()
+        public async Task<List<Book>> GetAllBooks()
         {
-           var books = _bookRepository.GetAllBooks();
+           var books = await _bookRepository.GetAllBooks();
            return books;
         }
-        public Book GetBookById(int id)
+        public async Task <Book> GetBookById(int id)
         {
-            return _bookRepository.GetBookById(id);
+            return await _bookRepository.GetBookById(id);
         }
-        public Book GetBookByISBN(int isbn)
+        public async Task<Book> GetBookByISBN(int isbn)
         {
-            return _bookRepository.GetBookByISBN(isbn);
+            return await _bookRepository.GetBookByISBN(isbn);
         }
-        public Book CreateBook(BookDTO bookDto)
+        public async Task<Book> CreateBook(BookDTO bookDto)
         {
             var book = _mapper.Map<Book>(bookDto);
-            _bookRepository.CreateBook(book);
+            await _bookRepository.CreateBook(book);
             return book;
         }
-        public Book UpdateBook(BookDTO bookDto)
+        public async Task<Book> UpdateBook(BookDTO bookDto)
         {
             var book = _mapper.Map<Book>(bookDto);
-            _bookRepository.UpdateBook(book);
-
+            await _bookRepository.UpdateBook(book);
             return book;
         }
 
-        public Book DeleteBook(int id)
+        public async Task<Book> DeleteBook(int id)
         {
-          return _bookRepository.DeleteBook(id);
+          return await _bookRepository.DeleteBook(id);
         }
     }
 }
