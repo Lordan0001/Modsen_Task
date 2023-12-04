@@ -16,12 +16,10 @@ namespace Library.API.Controllers
     {
         private readonly IBookService _bookService;
 
-        private readonly IMapper _mapper;
 
-        public BooksController(IBookService bookService, IMapper mapper)
+        public BooksController(IBookService bookService)
         {
             _bookService = bookService;
-            _mapper = mapper;
         }
         [HttpGet]
         public ActionResult<List<Book>> GetAllBooks()
@@ -44,14 +42,14 @@ namespace Library.API.Controllers
         [HttpPost]
         public ActionResult<Book> PostBook(BookDTO bookDTO)
         {//DI Mapper
-           var book = _mapper.Map<Book>(bookDTO);  
-           var createdBook = _bookService.CreateBook(book);
+           //var book = _mapper.Map<Book>(bookDTO);  
+           var createdBook = _bookService.CreateBook(bookDTO);
            return Ok(createdBook);
         }
         [HttpPut]
-        public ActionResult<Book> PutBook(Book book)
+        public ActionResult<Book> PutBook(BookDTO bookDto)
         {
-            var updatedBook = _bookService.UpdateBook(book);
+            var updatedBook = _bookService.UpdateBook(bookDto);
             return Ok(updatedBook);
         }
         [HttpDelete]

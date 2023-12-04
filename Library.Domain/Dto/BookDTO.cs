@@ -8,6 +8,7 @@ namespace Library.Domain.Dto
 {
     public class BookDTO
     {
+        public int BookId { get; set; }
         public int ISBN { get; set; }
         public string Title { get; set; } = String.Empty;
         public string Genre { get; set; } = String.Empty;

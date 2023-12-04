@@ -1,4 +1,5 @@
 ﻿using Library.Domain;
+using Library.Domain.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace Library.Application.Services
         List<Book> GetAllBooks();
         Book GetBookById(int id);
         Book GetBookByISBN(int isbn);
-        Book CreateBook(Book book);
-        Book UpdateBook(Book book);
+        Book CreateBook(BookDTO bookDto);
+        Book UpdateBook(BookDTO bookDto);
         Book DeleteBook(int id);
     }
 }

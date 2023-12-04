@@ -1,5 +1,7 @@
-﻿using Library.Application.Repositories;
+﻿using AutoMapper;
+using Library.Application.Repositories;
 using Library.Domain;
+using Library.Domain.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +14,12 @@ namespace Library.Application.Services
     {
         private readonly IBookRepository _bookRepository;
 
-        public BookService(IBookRepository bookRepository)
+        private readonly IMapper _mapper;
+
+        public BookService(IBookRepository bookRepository, IMapper mapper)
         {
             _bookRepository = bookRepository;
+            _mapper = mapper;
         }
         public List<Book> GetAllBooks()
         {
@@ -29,19 +34,20 @@ namespace Library.Application.Services
         {
             return _bookRepository.GetBookByISBN(isbn);
         }
-        public Book CreateBook(Book book)
+        public Book CreateBook(BookDTO bookDto)
         {
+            var book = _mapper.Map<Book>(bookDto);
             _bookRepository.CreateBook(book);
             return book;
         }
-        public Book UpdateBook(Book book)
+        public Book UpdateBook(BookDTO bookDto)
         {
+            var book = _mapper.Map<Book>(bookDto);
             _bookRepository.UpdateBook(book);
 
             return book;
         }
 
-    
         public Book DeleteBook(int id)
         {
           return _bookRepository.DeleteBook(id);
