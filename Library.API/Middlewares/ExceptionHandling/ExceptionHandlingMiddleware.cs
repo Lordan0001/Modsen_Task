@@ -50,8 +50,9 @@ namespace Library.API.Middlewares.ExceptionHandling
             catch (Exception ex)
             {
                 await HandleExceptionAsync(httpContext, ex.Message, HttpStatusCode.InternalServerError,
-                    "InternalServerError");
+                    "Internal Server Error");
             }
+            
         }
         public async Task HandleExceptionAsync(HttpContext context, string exMsg, HttpStatusCode httpStatusCode, string message)
         {

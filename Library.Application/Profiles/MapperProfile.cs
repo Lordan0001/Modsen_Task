@@ -13,7 +13,8 @@ namespace Library.Application.Profiles
     {
         public MapperProfile()
         {
-                CreateMap<BookDTO, Book>(); 
+                CreateMap<BookDTO, Book>();
+                CreateMap<Book, BookDTO>();
         }
     }
 }

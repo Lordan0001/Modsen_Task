@@ -75,5 +75,4 @@ D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\AutoMapper.dll
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
-D:\Projects\.NET\Interview\Library\Library.API\obj\Debug\net6.0\Library.API.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
