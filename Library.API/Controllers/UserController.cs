@@ -37,12 +37,12 @@ namespace Library.API.Controllers
 
         public async  Task<IActionResult> Authenticate(User user)
         {
-            var token =await _userService.Login(user);
-
+            var token = await _userService.Login(user);
+/*
             if (token == null)
             {
                 return Unauthorized();
-            }
+            }*/
 
             return Ok(token);
         }

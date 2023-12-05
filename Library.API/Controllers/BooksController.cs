@@ -15,8 +15,6 @@ namespace Library.API.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
-
-
         public BooksController(IBookService bookService)
         {
             _bookService = bookService;
@@ -26,6 +24,7 @@ namespace Library.API.Controllers
         {
             var booksFromService = await _bookService.GetAllBooks();
             return Ok(booksFromService);
+
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBookById(int id)

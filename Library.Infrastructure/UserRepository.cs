@@ -40,7 +40,7 @@ namespace Library.Infrastructure
 
             if(userExist == null)
             {
-                return null;
+                  throw new KeyNotFoundException("test");
             }
 
             //Generate JSON Web Token

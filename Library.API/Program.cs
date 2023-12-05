@@ -1,3 +1,4 @@
+using Library.API.Middlewares.ExceptionHandling;
 using Library.Application.Interfaces;
 using Library.Application.Services;
 using Library.Infrastructure;
@@ -109,7 +110,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
