@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Library.Infrastructure.Migrations
 {
-    public partial class changedir : Migration
+    public partial class userlogic : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,25 +32,21 @@ namespace Library.Infrastructure.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserEmail = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Books_ISBN",
                 table: "Books",
                 column: "ISBN",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_UserEmail",
-                table: "Users",
-                column: "UserEmail",
                 unique: true);
         }
 

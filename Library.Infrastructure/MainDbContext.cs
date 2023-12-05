@@ -34,10 +34,10 @@ namespace Library.Infrastructure
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.UserEmail)
+                entity.Property(e => e.Email)
                     .IsRequired();
-                    
-                entity.HasIndex(e => e.UserEmail).IsUnique();
+
+                entity.HasIndex(e => e.Email).IsUnique();
             });
 
         }

@@ -1,4 +1,5 @@
 ﻿using Library.Application.Dto;
+using Library.Application.DTO;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
@@ -63,7 +64,7 @@ namespace Library.API.Middlewares.ExceptionHandling
             response.ContentType = "application/json";
             response.StatusCode = (int)httpStatusCode;
 
-            ErrorDto errorDto = new()
+            ErrorDTO errorDto = new()
             {
                 Message = message,
                 StatusCode = (int)httpStatusCode

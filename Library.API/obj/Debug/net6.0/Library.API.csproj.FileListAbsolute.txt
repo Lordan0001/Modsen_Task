@@ -76,3 +76,9 @@ D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\AutoMapper.Exten
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\Projects\.NET\Interview\Library\Library.API\obj\Debug\net6.0\Library.API.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+D:\Projects\.NET\Interview\Library\Library.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

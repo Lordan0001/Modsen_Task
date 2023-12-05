@@ -65,19 +65,25 @@ namespace Library.Infrastructure.Migrations
 
             modelBuilder.Entity("Library.Domain.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("UserEmail")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("UserId");
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
 
-                    b.HasIndex("UserEmail")
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
                         .IsUnique();
 
                     b.ToTable("Users");

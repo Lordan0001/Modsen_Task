@@ -31,17 +31,26 @@ namespace Library.Application.Services
         public async Task <BookDTO> GetBookById(int id)
         {
             var book = await _bookRepository.GetBookById(id);
+            if (book == null)
+            {
+                throw new KeyNotFoundException($"Book with ID {id} not found.");
+            }
             return _mapper.Map<BookDTO>(book);
         }
         public async Task<BookDTO> GetBookByISBN(int isbn)
         {
             var book = await _bookRepository.GetBookByISBN(isbn);
+            if (book == null)
+            {
+                throw new KeyNotFoundException($"Book with ISBN {isbn} not found.");
+            }
             return _mapper.Map<BookDTO>(book);
         }
         public async Task<BookDTO> CreateBook(BookDTO BookDto)
         {
             var book = _mapper.Map<Book>(BookDto);
             var createdBook = await _bookRepository.CreateBook(book);
+
             return _mapper.Map<BookDTO>(createdBook);
         }
         public async Task<BookDTO> UpdateBook(BookDTO BookDto)
@@ -54,6 +63,10 @@ namespace Library.Application.Services
         public async Task<BookDTO> DeleteBook(int id)
         {
            var deletedBook = await _bookRepository.DeleteBook(id);
+            if (deletedBook == null)
+            {
+                throw new KeyNotFoundException($"Book with ID {id} not found.");
+            }
             return _mapper.Map<BookDTO>(deletedBook);
         }
     }

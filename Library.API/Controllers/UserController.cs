@@ -1,4 +1,5 @@
-﻿using Library.Application.Interfaces;
+﻿using Library.Application.Dto;
+using Library.Application.Interfaces;
 using Library.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,24 +27,17 @@ namespace Library.API.Controllers
             return Ok(users);
         }
         [HttpPost]
-        public async Task<ActionResult> CreateUser(User user)
+        public async Task<ActionResult> CreateUser(UserDTO userDTO)
         {
-            var newUser =await _userService.Registration(user);
+            var newUser =await _userService.Registration(userDTO);
             return Ok(newUser);
         }
 
         [HttpPost]
         [Route("authenticate")]
-
-        public async  Task<IActionResult> Authenticate(User user)
+        public async Task<ActionResult> Authenticate(UserDTO userDTO)
         {
-            var token = await _userService.Login(user);
-/*
-            if (token == null)
-            {
-                return Unauthorized();
-            }*/
-
+            var token = await _userService.Login(userDTO);
             return Ok(token);
         }
     }

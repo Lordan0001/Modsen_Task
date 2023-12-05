@@ -5,9 +5,9 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Library.Application.Dto
+namespace Library.Application.DTO
 {
-    public class ErrorDto
+    public class ErrorDTO
     {
         public int StatusCode { get; set; }
         public string Message { get; set; } = String.Empty;
