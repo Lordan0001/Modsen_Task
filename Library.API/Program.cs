@@ -28,7 +28,7 @@ builder.Services.AddSwaggerGen(c =>
         Title = "WebApi for Modsen",
         Description = "Before using books CRUD, you need to pass authentication:\r\n" +
         "1. post /api/user to add a user\r\n " +
-        "2. post /api/User/authenticate enter the email and the token will be returned\r\n" +
+        "2. post /api/User/authenticate enter the email and password then the token will be returned\r\n" +
         "3. click on the padlock, enter berer and the resulting token",
 
     });
